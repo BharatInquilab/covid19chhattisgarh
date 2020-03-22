@@ -30,7 +30,7 @@
 
 				var $legend = jQuery( document.createElement( 'div' ) );
         //$legend.attr('id', 'legend');
-				$legend.html('<h5>Map Key:</h5><p><span class="key-item" style="background-color:#feebe2"></span> No cases reported</p><p><span class="key-item" style="background-color:#fbb4b9"></span> 5 cases or less</p><p><span class="key-item" style="background-color:#f768a1"></span> 6 to 10 cases</p><p><span class="key-item" style="background-color:#c51b8a"></span> 11 to 15 cases</p><p><span class="key-item" style="background-color:#7a0177"></span> More than 15</p>');
+				$legend.html('<h5>Map Key:</h5><p><span class="key-item" style="background-color:#AEFFB1"></span> No cases reported</p><p><span class="key-item" style="background-color:#fbb4b9"></span> 5 cases or less</p><p><span class="key-item" style="background-color:#f768a1"></span> 6 to 10 cases</p><p><span class="key-item" style="background-color:#c51b8a"></span> 11 to 15 cases</p><p><span class="key-item" style="background-color:#7a0177"></span> More than 15</p>');
         $legend.appendTo('#legend');
 
 				$("#timestamp").empty().append(metadata[0]["Value"]);
@@ -76,7 +76,7 @@
         $el.find('.spinner-grow').hide();
 
 				//SETUP BASEMAP
-				map = L.map('map').setView( [22.27, 80.37], 5 );
+				map = L.map('map').setView( [20.90, 82.37], 7 );
 
         //var hybUrl='https://api.mapbox.com/styles/v1/mapbox/outdoors-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ3VuZWV0bmFydWxhIiwiYSI6IldYQUNyd0UifQ.EtQC56soqWJ-KBQqHwcpuw';
         var hybUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
@@ -133,7 +133,7 @@
 				else if (c_count > 10 && c_count <= 15 ) color = "#c51b8a";
 				else if (c_count > 5 && c_count <= 10) color = "#f768a1";
 				else if (c_count >= 1 && c_count <= 5) color = "#fbb4b9";
-				else {color = "#feebe2";}
+				else {color = "#AEFFB1";}
 
 				return {
           fillColor: color,
