@@ -21,17 +21,28 @@
         $map.attr('id', 'map');
         $map.appendTo( $el );
 
-				var $goTop = jQuery( document.createElement( 'a' ) );
-        $goTop.attr('id', 'top-btn');
-				$goTop.attr('href', '#sidebar');
-				$goTop.addClass('d-md-none d-lg-none d-xl-none')
-				$goTop.html('<i class="fa fa-caret-up"></i>')
-        $goTop.appendTo( $el );
-
-				var $legend = jQuery( document.createElement( 'div' ) );
+		var $legend = jQuery( document.createElement( 'div' ) );
         //$legend.attr('id', 'legend');
-				$legend.html('<h5>Map Key:</h5><p><span class="key-item" style="background-color:#AEFFB1"></span> No cases reported</p><p><span class="key-item" style="background-color:#fbb4b9"></span> 5 cases or less</p><p><span class="key-item" style="background-color:#f768a1"></span> 6 to 10 cases</p><p><span class="key-item" style="background-color:#c51b8a"></span> 11 to 15 cases</p><p><span class="key-item" style="background-color:#7a0177"></span> More than 15</p>');
+				$legend.html('<h5>मानचित्र संकेत :</h5><p><span class="key-item" style="background-color:#AEFFB1"></span> कोई केस नहीं </p><p><span class="key-item" style="background-color:#FF9898"></span> 5 केस या उससे काम </p><p><span class="key-item" style="background-color:#FF6666 "></span> 6 से 10 केस</p><p><span class="key-item" style="background-color:#FE3636"></span> 11 से 15 केस</p><p><span class="key-item" style="background-color:#FB0000"></span>15 से  अधिक </p>');
         $legend.appendTo('#legend');
+		
+		var $legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
 
 				$("#timestamp").empty().append(metadata[0]["Value"]);
 
@@ -51,11 +62,14 @@
 				//MODAL INFO
 				$('#abt-modal').click( function () {
 					$("#infoModalLabel").empty().append("About this Map");
-					$(".modal-body").empty().append('<p>This map is an attempt at tracking CoVid-19 cases in India at the district level. The source of this data is news reports, and the official <a href="http://www.mohfw.gov.in/" target="_blank">numbers from MoHFW</a> are used as a reference. The <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlSCAn1nS4h9n9Fp25iuOsH54RfMUjj3xX5CZqjGUqYCVXgwgtJojuqVeqekazs2TkSJ95Jwplo7lL/pubhtml#" target="_blank">data is compiled here</a>.</p><p>Some issues regarding this exercise: a) should the cases be marked where the patient is currently quarantined or where they reside (or where spread may have happened), b) the time at which a news report is published sometimes is not when the actual cases were reported by authorities, this may be a cause of discrepancies</p><p>Feedback is more than welcome. Please DM <a href="https://twitter.com/guneetnarula" target="_blank">@guneetnarula</a>, or <a href="https://github.com/guneetnarula/covid19-in" target="_blank">create an issue here</a>, or write an <a href="mailto:guneet@sputznik.com?subject=covid19 india district map feedback">email</a>. Thank you!</p><hr><p>If you need help or more information about the pandemic, consider the following links:</p><ul><li><a href="https://www.who.int/health-topics/coronavirus" target="_blank">World Health Organization</a></li><li><a href="http://www.mohfw.gov.in/" target="_blank">Ministry of Health and Family Welfare</a></li><li><a href="https://github.com/datameet/covid19" target="_blank">DataMeet Archive on CoVID19 numbers</a></li><li><a href="https://ourworldindata.org/coronavirus" target="_blank">Our World in Data</a></li><li><a href="https://www.coronasafe.in/" target="_blank">Coronasafe</a></li><li><a href="https://www.covid19india.org/" target="_blank">India CoVID 19 tracker</a></li></ul>');
-				});
+					$(".modal-body").empty().append('<p>यह सरकारी या अधिकृत वेबसाइट नहीं है बल्कि आप लोगो की भलाई के लिए निजी टीम द्वारा संचालित है  यह मानचित्र छत्तीसगढ़ में जिला स्तर पर CoVid-19 मामलों को ट्रैक करने का एक प्रयास है। इस डेटा का स्रोत विश्वसनीय समाचार रिपोर्ट है, और संदर्भ के रूप में <a href="http://www.mohfw.gov.in/" target="_blank">MoHFW से आधिकारिक संख्याओं </a>का  उपयोग किया जाता है। डेटा <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlEfzRXHLX4cxB_1WIUJMp_9ToKOD9Ad6t2UUlmgI7XeuiuzKLtx-XwNXy4ZcQ8Zq3Cr07Rq7Vmq9t/pubhtml#" target="_blank">यहाँ संकलित किया गया है।</a>.</p><p>इस अभ्यास के बारे में कुछ मुद्दे:  अ) उन मामलों को चिह्नित किया जाना चाहिए जहां रोगी वर्तमान में संगरोधित है या जहां वे निवास करते हैं (या जहां फैल हो सकता है),  ब)  एक समाचार रिपोर्ट में प्रकाशित होने और अधिकारियों द्वारा सूचित किए जाने के बीच समय का अंतर होने के कारण, आकड़ों में अंतर हो सकता है</p><p>सुझाव  का स्वागत  है।  आप हमें <a href="mailto:covid19cg@gmail.com?subject=covid19 cg district map feedback">ईमेल </a>भेज सकते हैं . धन्यवाद  !</p><hr><p>यदि आपको महामारी के बारे में मदद या अधिक जानकारी चाहिए, तो निम्नलिखित लिंक पर विचार करें::</p><ul><li><a href="https://www.who.int/health-topics/coronavirus" target="_blank">World Health Organization</a></li><li><a href="http://www.mohfw.gov.in/" target="_blank">Ministry of Health and Family Welfare</a></li><li><a href="https://t.me/MyGovCoronaNewsdesk" target="_blank">GOI official Telegram channel for corona</a></li><li><a href="https://www.mygov.in/covid-19/" target="_blank">MyGov - Covid 19</a></li><li><a href="https://www.coronasafe.in/" target="_blank">Coronasafe</a></li><li><a href="https://www.covid19india.org/" target="_blank">India CoVID 19 tracker</a></li></ul>');});
 				$('#ct-modal').click( function () {
 					$("#infoModalLabel").empty().append("Contribute to this Map");
-					$(".modal-body").empty().append('<p>If you are familiar with Leaflet and jQuery, check out the <a href="https://github.com/guneetnarula/covid19-in" target="_blank">git repo</a> and contribute</p><p>If you are a journalist or someone carefully tracking news, you can help maintain the data. See the <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlSCAn1nS4h9n9Fp25iuOsH54RfMUjj3xX5CZqjGUqYCVXgwgtJojuqVeqekazs2TkSJ95Jwplo7lL/pubhtml#" target="_blank"">readme sheet here</a>.</p>');
+					$(".modal-body").empty().append('<p>यदि आप web designer  android  app प्रोग्रामर इत्यादि हैं अथवा Leaflet and jQuery, react  में अनुभव रखते हैं तो वेबसाइट को और बेहतर बनाने में अपना योगदान कर सकते हैं  आप हमें <a href="mailto:covid19cg@gmail.com?subject=covid19 cg district map feedback">ईमेल </a>भेज सकते हैं . धन्यवाद  !</p>');
+				});
+				$('#bt-modal').click( function () {
+					$("#infoModalLabel").empty().append("govt updates");
+					$(".modal-body").empty().append('<p>govt update the <a href="https://github.com/guneetnarula/covid19-in" target="_blank">git repo</a> and contribute</p><p>If you are a journalist or someone carefully tracking news, you can help maintain the data. See the <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlSCAn1nS4h9n9Fp25iuOsH54RfMUjj3xX5CZqjGUqYCVXgwgtJojuqVeqekazs2TkSJ95Jwplo7lL/pubhtml#" target="_blank"">readme sheet here</a>.</p>');
 				});
 				$('#st-modal').click( function () {
 					$("#infoModalLabel").empty().append("State Level Data");
@@ -76,7 +90,7 @@
         $el.find('.spinner-grow').hide();
 
 				//SETUP BASEMAP
-				map = L.map('map').setView( [20.90, 82.37], 7 );
+				map = L.map('map').setView( [20.82, 82.37], 7 );
 
         //var hybUrl='https://api.mapbox.com/styles/v1/mapbox/outdoors-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ3VuZWV0bmFydWxhIiwiYSI6IldYQUNyd0UifQ.EtQC56soqWJ-KBQqHwcpuw';
         var hybUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
@@ -111,6 +125,10 @@
       }
 			//-----------------------------
 
+
+
+
+
 			function stylestate( feature ) {
         //STATE STYLES
 
@@ -129,10 +147,10 @@
 
 				var c_count = counter("District", feature); //JUST FINDS THE CORRECT ROW
 
-				if (c_count > 15) color = "#7a0177";
-				else if (c_count > 10 && c_count <= 15 ) color = "#c51b8a";
-				else if (c_count > 5 && c_count <= 10) color = "#f768a1";
-				else if (c_count >= 1 && c_count <= 5) color = "#fbb4b9";
+				if (c_count > 15) color = "#FB0000 ";
+				else if (c_count > 10 && c_count <= 15 ) color = "#FE3636 ";
+				else if (c_count > 5 && c_count <= 10) color = "#FF6666";
+				else if (c_count >= 1 && c_count <= 5) color = "#FF9898";
 				else {color = "#AEFFB1";}
 
 				return {
@@ -282,11 +300,11 @@
 
 jQuery(document).ready(function(){
 
-	Tabletop.init( { key: "1AL1cj_33m3D7JkT-_wPB7LPJAqIfV2Y5XVMui7nczy4", callback: getdata, simpleSheet: false } );
+	Tabletop.init( { key: "1FfW1o_vkbGoFClRJWSAp7ih27878BdWEAlbTgoyzlkY", callback: getdata, simpleSheet: false } );
 
 	function getdata(d, tabletop) {
 		var data, metadata = [];
-		data = tabletop.sheets("raw").elements;
+		data = tabletop.sheets("districtwise").elements;
 		metadata = tabletop.sheets("readme").elements;
 
 		jQuery( '[data-behaviour~=choropleth-map]' ).choropleth_map(data, metadata);
