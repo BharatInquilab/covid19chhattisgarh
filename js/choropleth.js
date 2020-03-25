@@ -26,23 +26,7 @@
 				$legend.html('<h5>मानचित्र संकेत :</h5><p><span class="key-item" style="background-color:#AEFFB1"></span> कोई केस नहीं </p><p><span class="key-item" style="background-color:#FF9898"></span> 5 केस या उससे काम </p><p><span class="key-item" style="background-color:#FF6666 "></span> 6 से 10 केस</p><p><span class="key-item" style="background-color:#FE3636"></span> 11 से 15 केस</p><p><span class="key-item" style="background-color:#FB0000"></span>15 से  अधिक </p>');
         $legend.appendTo('#legend');
 		
-		var $legend = L.control({position: 'bottomright'});
-
-legend.onAdd = function (map) {
-
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-        labels = [];
-
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-
-    return div;
-};
+		
 
 				$("#timestamp").empty().append(metadata[0]["Value"]);
 
