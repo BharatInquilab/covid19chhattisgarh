@@ -1,0 +1,227 @@
+
+/* ---------- General Layout ---------- */
+@page {
+ size: A4;
+ margin: 15px 0;
+}
+ @-moz-document url-prefix() {
+body {
+size:A4 !important ;
+}
+/*.statistics-box {
+width:20% !important;
+}*/
+#block-views-homepage-slider-block .scroll-down-area {
+width: 1124px !important;
+}
+/*.header-logo {
+width:auto !important;
+}*/
+.header-message {
+width: 500px !important;
+margin-top:5px !important;
+}
+.top-right {
+width: 550px !important;
+}
+.top-right strong {
+font-size: 70% !important;
+}
+.top-right .lang-box {
+width: 440px !important;
+font-size:70% !important;
+}
+#block-common-utils-mygov-statistics-block {
+clear:both !important;
+margin-bottom:180px !important;
+}
+#block-views-featured-task-block-5 {
+clear:both !important;
+margin-top: 50px;
+}
+.footer-wrapper #block-menu-menu-content-menu .content_menu_title {
+width:195px !important;
+}
+#block-menu-menu-content-menu ul li {
+margin-right:7px !important;
+width:90px !important;
+}
+/*.footer-wrapper #block-menu-menu-content-menu .content {
+float:none !important;
+clear:both !important;
+}*/
+.footer-wrapper #block-menu-menu-secondary-menu {
+width:20% !important;
+}
+.footer-wrapper #block-menu-menu-secondary-menu ul.menu li {
+font-size:85% !important;
+}
+.footer-wrapper .bottom-right #block-common-utils-developed-by-block {
+width:40% !important;
+font-size:80% !important;
+}
+.footer-wrapper .bottom-right #block-block-25 {
+margin:15px 0 0 10px !important;
+}
+.container .twelve.columns {
+width: 750px !important;
+}
+}
+@media print {
+body { width: 100%; page-break-after:always; }
+/* ... the rest of the rules ... */
+}
+/*Base css added*/
+* { margin:0; padding:0 }
+h1, h2, h3, h4, h5 { line-height:normal; font-weight:400; margin:0; padding:0 }
+.clear { clear:both; display:block }
+#block-system-main .node.details.group .group_stats.full .statistics-box h4 { font-size:12px !important; }
+#block-system-main .node.details.group .group_stats.full .statistics-box { float:left !important; display:inline-block !important; width:auto !important; height:50px !important; }
+#block-common-utils-mygov-statistics-block .statistics-box {width:22%; height:200px; background-size:100% 100%; margin-left:2.5%;}
+#block-common-utils-mygov-statistics-block .stats_box .number{padding:4px;}
+#block-common-utils-mygov-statistics-block .stats_box .desc{padding-top:0px;}
+.container .twelve.columns {width: 1060px; font-size:120%;}
+.container .four.columns {display:none;}
+/*body,
+input,
+textarea,
+select {
+  color: #000;
+  background: none;
+}
+body.two-sidebars,
+body.sidebar-first,
+body.sidebar-second,
+body {
+  width: 640px;
+}
+#sidebar-first,
+#sidebar-second,
+.navigation,
+#toolbar,
+#footer-wrapper,
+.tabs,
+.add-or-remove-shortcuts {
+  display: none;
+}
+.one-sidebar #content,
+.two-sidebars #content {
+  width: 100%;
+}
+#triptych-wrapper {
+  width: 960px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+#triptych-first, #triptych-middle, #triptych-last {
+  width: 250px;
+}
+*/
+/* ---------- Node Pages ---------- */
+/**
+ * @file
+ * Print styling
+ *
+ * We provide some sane print styling for Drupal using Zen's layout method.
+ */
+
+
+/* underline all links */
+a:link, a:visited { text-decoration: underline !important; }
+/* Don't underline header */
+#site-name a:link, #site-name a:visited { text-decoration: none !important; }
+/* Un-float the content */
+#content, #content .section { float: none; width: 100%; margin: 0 !important; padding: 0 !important; }
+/* Turn off any background colors or images */
+body, #page-wrapper, #page, #main-wrapper, #main, #content, #content .section { color: #000; background-color: transparent !important; background-image: none !important; }
+/* Hide sidebars and nav elements */
+#skip-link, #navigation, .region-sidebar-first, .region-sidebar-second, #footer, .breadcrumb, div.tabs, .links, .taxonomy, .book-navigation, .forum-topic-navigation, .pager, .feed-icons { visibility: hidden; display: none; }
+/* If you un-comment the "page { overflow-y: hidden; }" ruleset, Firefox clips
+   the content after the first page. */
+#page-wrapper { overflow-y: visible; }
+.container { width:auto; }
+.view-id-featured_task .views-row .content_type { top: 103px !important; }
+#block-views-homepage-slider-block .scroll-down-area { width: 960px; }
+/*.statistics-box { width: 150px; height: 160px; }*/
+.statistics-box .group_name, .statistics-box .task_name, .statistics-box .discuss_name, .statistics-box .user_name { font-size: 15px; }
+.statistics-box .back_slide p, .statistics-box .slide p { min-height: auto; padding-bottom: 0 !important; }
+.statistics-box.stats_user .back_slide p { margin-top: 15px; height: 100px; }
+body.node-type-simple-page #block-system-main iframe { width:100%; }
+body.node-type-talk #block-system-main .node.details.talk { text-align:center; }
+body.node-type-talk #block-system-main .node.details.talk .field-item.even >p { float:none; }
+body.node-type-talk #block-system-main .node.details.talk .twitter { width:100%; margin:20px 0 10px; }
+.footer-wrapper #block-menu-menu-content-menu { width: 960px !important; }
+.footer-wrapper #block-menu-menu-content-menu ul li { margin: auto 8.5px auto auto; }
+#block-views-homepage-slider-block .scroll-down-area { width: 960px; }
+.footer-wrapper #block-menu-menu-secondary-menu { padding: 40px 30px 20px !important; width: 50% !important; }
+.footer-wrapper .bottom-right #block-block-25 { padding: 0 0 0 100px !important; margin-left: 30px !important; }
+#block-system-main .view-id-groups .views-row, #-do-discuss-filter-output-wrapper .view-id-tasks .views-row, #-do-discuss-filter-output-wrapper .view-id-groupissue .views-row, #-do-discuss-filter-output-wrapper .view-id-group-talks .views-row, #-do-discuss-filter-output-wrapper .view-id-blogs .views-row { margin: 0 18px 10px 0; }
+.content_box.group_box { width: 200px; }
+ul#activities li { width: 14%; }
+body.page-user-register .region-content, body.page-user-login .region-content { margin: 0 auto; width: 90%; }
+#content.container.newClass #listingmiddlecontent_group_div.show .content_box.group_box { width: 287px; }
+#content.container.newClass #listingmiddlecontent_group_div.show #block-system-main.grid .view-id-groups .views-row, #content.container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.grid .view-id-tasks .views-row, #content.container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.grid .view-id-groupissue .views-row, #content.container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.grid .view-id-blogs .views-row, #content.container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.grid .view-id-group_talks .views-row { margin: 0 23px 23px 0; width: 22.15%; }
+ #content.container.newClass #listingmiddlecontent_group_div.show #block-system-main.grid .view-id-groups .views-row:nth-child(4n), #content.container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.grid .view-id-tasks .views-row:nth-child(4n), #content.container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.grid .view-id-groupissue .views-row:nth-child(4n), #content.container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.grid .view-id-blogs .views-row:nth-child(4n), #content.container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.grid .view-id-group_talks .views-row:nth-child(4n) {
+ margin-right:0px;
+}
+body.page-groups #block-system-main .view-id-groups .do_desc .group_stats.teaser .statistics-box { height:auto; margin-bottom:0; display:inline-block; float:left;}
+body.page-groups #block-system-main.list .view-id-groups .do_desc .group_stats.teaser .statistics-box { clear: none; }
+body.page-groups #block-system-main.grid .view-id-groups .do_desc .group_stats.teaser .statistics-box.stats_blog, body.page-groups #block-system-main.grid .view-id-groups .do_desc .group_stats.teaser .statistics-box.stats_talk { width: auto; }
+body.page-groups #block-system-main.grid .view-id-groups .do_desc .view_group { bottom: 151px; }
+body.page-groups #block-system-main.list .view-id-groups .views-row .do_right.group_img, #-do-discuss-filter-output-wrapper.list .view-id-groupissue .views-row .do_right, #-do-discuss-filter-output-wrapper.list .view-id-group_talks .views-row .do_right, #-do-discuss-filter-output-wrapper.list .view-blogs .views-row .blog_img.fl, #-do-discuss-filter-output-wrapper.list .view-tasks .views-row .do_right { width: 225px; }
+body.page-groups #block-system-main.list .view-id-groups .views-row .do_desc { width: 60%; }
+#-do-discuss-filter-output-wrapper.list .view-id-groupissue .views-row .description_wrappper, #-do-discuss-filter-output-wrapper.list .view-id-group_talks .views-row .description_wrappper, #-do-discuss-filter-output-wrapper.list .view-blogs .views-row .description_wrappper, #-do-discuss-filter-output-wrapper.list .view-tasks .views-row .description_wrapper { width: 100%; float: none; }
+body.page-home-do #-do-discuss-filter-output-wrapper.list .view-id-tasks .time_box { position: relative; padding: 15px 0 10px; width: 100%; clear: both; }
+#-do-discuss-filter-output-wrapper.list .view-id-groupissue .views-row .description_wrappper .desc_inner_wrap { display: table; }
+#-do-discuss-filter-output-wrapper.list .view-id-groupissue .views-row .description_wrappper .time_box { clear: both; }
+#-do-discuss-filter-output-wrapper.list .view-blogs .views-row .description_wrappper { padding-bottom: 10px; }
+#-do-discuss-filter-output-wrapper.list .view-blogs .views-row .blog_desc_wrap { padding: 15px 10px; clear: both; }
+#-do-discuss-filter-output-wrapper.list .view-id-blogs .views-row .blog_teaser span.blog_date { padding: 0 20px 7px 0; width: auto; }
+body.page-groups .container.newClass #listingmiddlecontent_group_div.show #block-system-main.list .view-id-groups .views-row .do_desc, .container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.list .view-id-groupissue .views-row .description_wrappper, .container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.list .view-id-group_talks .views-row .description_wrappper, .container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.list .view-blogs .views-row .description_wrappper, .container.newClass #listingmiddlecontent_group_div.show #-do-discuss-filter-output-wrapper.list .view-tasks .views-row .description_wrapper { width: 72%; float: left; }
+body.page-groups #block-system-main.list .view-id-groups .do_desc .group_stats.teaser .statistics-box a span.size- { padding: 3px; }
+body.page-groups #block-system-main.list .view-id-groups .do_desc .view_group { width: auto; padding: 5px; margin-right: 0; }
+.detail_top .top_nav_wrapper { width: 61.5%; }
+#-do-discuss-filter-output-wrapper .view-id-polls .views-row .poll_featured .poll .bar, #block-system-main .poll_des .bar { width: 92%; }
+.comment_content { width: 85%; }
+#block-system-main.grid .view-id-groups .views-row { min-height:437px; }
+.comment_extra_links .voting_wrap .like-container-entity-comment, .comment_extra_links .voting_wrap .dislike-container-entity-comment { margin-right:6px; }
+.footer-container .footer_logo { padding-left: 30px; width: 511px; }
+.footer-container .footer_logo li:last-child { margin-right: 0; }
+.footer-container .footer_logo li { margin-right: 34px; }
+.server_info { padding-left: 30px }
+.view-podcast .desc_inner { min-height:260px; }
+body.page-node-add-team .node-team-form #edit-field-invitees .fieldset-wrapper .field-name-title-field, body.page-node-add-team .node-team-form #edit-field-invitees .fieldset-wrapper .field-type-email, body.page-node-add-team .node-team-form #edit-field-invitees .fieldset-wrapper .field-name-field-invitee-mobile-no, body.page-node-edit .node-team-form #edit-field-invitees .fieldset-wrapper .field-name-title-field, body.page-node-edit .node-team-form #edit-field-invitees .fieldset-wrapper .field-type-email, body.page-node-edit .node-team-form #edit-field-invitees .fieldset-wrapper .field-name-field-invitee-mobile-no { width:33%; }
+body.page-node-add-team .node-team-form .form-wrapper .fieldset-wrapper table.ief-entity-table tr th, body.page-node-edit .node-team-form .form-wrapper .fieldset-wrapper table.ief-entity-table tr th { font-size:12px; }
+body.page-node-add-team .node-team-form .form-wrapper .fieldset-wrapper table.ief-entity-table tr td.inline-entity-form-node-title, body.page-node-edit .node-team-form .form-wrapper .fieldset-wrapper table.ief-entity-table tr td.inline-entity-form-node-title { width:240px; }
+body.page-node-add-team .node-team-form .form-wrapper .fieldset-wrapper table.ief-entity-table tr th.ief-sort-order-header, body.page-node-edit .node-team-form .form-wrapper .fieldset-wrapper table.ief-entity-table tr th.ief-sort-order-header { width:110px; }
+body.page-node-add-team .node-team-form .form-wrapper .fieldset-wrapper table.ief-entity-table tr td .ief-entity-operations input, body.page-node-edit .node-team-form .form-wrapper .fieldset-wrapper table.ief-entity-table tr td .ief-entity-operations input { margin:5px!important; }
+body.page-node-add-team .node-team-form #edit-field-invitees .fieldset-wrapper #edit-field-invitees-und-form-actions input, body.page-node-add-team .node-team-form #edit-field-invitees .fieldset-wrapper .form-wrapper input[value="Update Invitee"], body.page-node-add-team .node-team-form #edit-field-invitees .fieldset-wrapper .ief-row-form input[value="Remove"], body.page-node-add-team .node-team-form #edit-field-invitees .fieldset-wrapper .form-wrapper input[value="Cancel"], body.page-node-add-team .node-team-form #edit-field-invitees .fieldset-wrapper .form-wrapper input[value="Add Invitee"], body.page-node-edit .node-team-form #edit-field-invitees .fieldset-wrapper #edit-field-invitees-und-form-actions input { margin-top:10px; }
+#block-system-main .node.details.task .team_submission_area .invite_msg { width:100%; }
+#block-system-main .node.details.task .team_submission_area .invitation_wrapper .flag-accept-invitation, #block-system-main .node.details.task .team_submission_area .invitation_wrapper .flag-reject-invitation { margin-top:10px; }
+body.page-node-add-team .node-team-form #edit-title-field input { width:94.8%; }
+#listingmiddlecontent_group_div{float:none !important;}
+
+#block-views-homepage-slider-block,.node-promoted{display:none;}
+#poll_note{display:none;}
+.scroll-down-area{display:none;}
+.footer-wrapper{margin-top:0px !important;}
+.slider-wrapper{display:none;}
+.top-right,.header-message {display:none;}
+/*#block-common-utils-mygov-statistics-block::before, #block-views-featured-task-block-5::before{display:none;}*/
+.top_wrapper.sticky, .top_wrapper{position:relative;}
+.header-logo{width:121px;}
+.header-nav{opacity:1; height:auto; display:block; }
+.header-nav .links{display:block;  visibility: visible;}
+.section-header-wrapper{height:71px;}
+.top_wrapper .container.container-header {
+    background-position: 102px 3px;
+    background-size: auto 68px;
+    height: 70px;
+}
+/*#block-common-utils-mygov-statistics-block, #block-views-featured-task-block-5{margin-bottom:0px; padding-bottom:0px; }*/
+.stats_desc .user_count span, .stats_desc .submission_count span, .stats_desc .comments_count_theme span{font-size:24px;}
+#block-common-utils-mygov-statistics-block{padding-top:60px;}
+.footer-wrapper #block-menu-menu-content-menu .content_menu_title h2{font-size:200%;}
+.footer-wrapper #block-menu-menu-content-menu .content{float:left;}
+#block-common-utils-mygov-statistics-block .stats_box .desc{font-size:10px;}
