@@ -1,3 +1,7 @@
+#sidebar {
+    height: 100vh;
+    overflow: scroll;
+}
 #top-btn {
     position: absolute;
     bottom: 25px;
