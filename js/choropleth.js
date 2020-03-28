@@ -20,8 +20,15 @@
         var $map = jQuery( document.createElement( 'div' ) );
         $map.attr('id', 'map');
         $map.appendTo( $el );
+	      
+	var $goTop = jQuery( document.createElement( 'a' ) );
+        $goTop.attr('id', 'top-btn');
+				$goTop.attr('href', '#sidebar');
+				$goTop.addClass('d-md-none d-lg-none d-xl-none')
+				$goTop.html('<i class="fa fa-caret-up"></i>')
+        $goTop.appendTo( $el );
 
-		var $legend = jQuery( document.createElement( 'div' ) );
+        var $legend = jQuery( document.createElement( 'div' ) );
         //$legend.attr('id', 'legend');
 				$legend.html('<h5>मानचित्र संकेत :</h5><p><span class="key-item" style="background-color:#AEFFB1"></span> कोई केस नहीं </p><p><span class="key-item" style="background-color:#FF9898"></span> 5 केस या उससे काम </p><p><span class="key-item" style="background-color:#FF6666 "></span> 6 से 10 केस</p><p><span class="key-item" style="background-color:#FE3636"></span> 11 से 15 केस</p><p><span class="key-item" style="background-color:#FB0000"></span>15 से  अधिक </p>');
         $legend.appendTo('#legend');
