@@ -30,7 +30,7 @@
 
         var $legend = jQuery( document.createElement( 'div' ) );
         //$legend.attr('id', 'legend');
-				$legend.html('<h5>मानचित्र संकेत :</h5><p><span class="key-item" style="background-color:#AEFFB1"></span> कोई केस नहीं </p><p><span class="key-item" style="background-color:#FF9898"></span> 5 केस या उससे काम </p><p><span class="key-item" style="background-color:#FF6666 "></span> 6 से 10 केस</p><p><span class="key-item" style="background-color:#FE3636"></span> 11 से 15 केस</p><p><span class="key-item" style="background-color:#FB0000"></span>15 से  अधिक </p>');
+				$legend.html('<h5>मानचित्र संकेत :</h5><p><span class="key-item" style="background-color:#AEFFB1"></span> कोई केस नहीं </p><p><span class="key-item" style="background-color:#FF9898"></span> 10 केस या उससे काम </p><p><span class="key-item" style="background-color:#FF6666 "></span> 10 से 20 केस</p><p><span class="key-item" style="background-color:#FE3636"></span> 20 से 30 केस</p><p><span class="key-item" style="background-color:#FB0000"></span> 30 से 40केस</p><p><span class="key-item" style="background-color:#800000"></span>40 से  अधिक </p>');
         $legend.appendTo('#legend');
 		
 		
@@ -138,10 +138,11 @@
 
 				var c_count = counter("District", feature); //JUST FINDS THE CORRECT ROW
 
-				if (c_count > 15) color = "#FB0000 ";
-				else if (c_count > 10 && c_count <= 15 ) color = "#FE3636 ";
-				else if (c_count > 5 && c_count <= 10) color = "#FF6666";
-				else if (c_count >= 1 && c_count <= 5) color = "#FF9898";
+				if (c_count > 40) color = "#800000 ";
+				else if (c_count > 30 && c_count <= 40 ) color = "#FB0000 ";
+				else if (c_count > 20 && c_count <= 30 ) color = "#FE3636 ";
+				else if (c_count > 10 && c_count <= 20) color = "#FF6666";
+				else if (c_count >= 1 && c_count <= 10) color = "#FF9898";
 				else {color = "#AEFFB1";}
 
 				return {
